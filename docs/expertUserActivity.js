@@ -29,7 +29,7 @@ document.getElementById("ticketSubmissionButton").onclick(async (evt) => {
   const browserTokenKey = "";
   const userActivityToken = await getUserActivityToken(
     browserTokenKey,
-    siteUrl
+    "https://success.mindtouch.com"
   );
   alert(userActivityToken);
 });
