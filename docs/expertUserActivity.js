@@ -14,7 +14,7 @@ async function getUserActivityToken(browserTokenKey, siteUrl) {
     });
     const userResponse = await response.json();
     const sessionId = response.headers.get("X-Deki-Session");
-    return `${userResponse.id}:${sessionId}`;
+    return `${userResponse['@id']}:${sessionId}`;
   } catch (error) {
     console.warn(
       "Unable to get token: Ensure its not a CORS issue by following our official docs: https://success.mindtouch.com/Integrations/API/Authorization_Tokens/Use_a_Browser_API_Token_With_an_Integration"
