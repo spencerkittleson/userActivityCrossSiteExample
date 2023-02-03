@@ -7,7 +7,7 @@
  */
 async function getUserActivityToken(browserTokenKey, siteUrl) {
   try {
-    const response = await fetch(`${siteUrl}/users/current`, {
+    const response = await fetch(`${siteUrl}/@api/deki/users/current?dream.out.format=json`, {
       headers: {
         "X-Deki-Token": browserTokenKey,
       },
@@ -23,13 +23,13 @@ async function getUserActivityToken(browserTokenKey, siteUrl) {
   }
 }
 
-document.getElementById("ticketSubmissionButton").onclick(async (evt) => {
+document.getElementById("ticketSubmissionButton").onclick = async (event) => {
   // Received a browser token here: https://success.mindtouch.com/Integrations/API/Authorization_Tokens/Get_a_Browser_API_Token
   // this token can also be granted from a Server API Token: see here for token information. https://success.mindtouch.com/Integrations/API/Authorization_Tokens
-  const browserTokenKey = "";
+  const browserTokenKey = "94864e79ea48ff32afdc0ffed7cc34833b5f44e2b52ea2603ab934966e51783e";
   const userActivityToken = await getUserActivityToken(
     browserTokenKey,
     "https://success.mindtouch.com"
   );
   alert(userActivityToken);
-});
+};
